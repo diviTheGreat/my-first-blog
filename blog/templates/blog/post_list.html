@@ -1,19 +1,47 @@
+{% load staticfiles %}
 <html>
 
 <head>
-    <title>diviTheGreat blog</title>
+    <title>divi The Great Blog</title>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+	<link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+	<script src="https://use.fontawesome.com/972815642d.js"></script>
 </head>
 
+
 <body>
-    <div>
-        <h1><a href="">diviTheGreat blog</a></h1> </div>
-{% for post in posts %}
-    <div>
-        <p>published: {{ post.published_date }}</p>
-        <h1><a href="">{{ post.title }}</a></h1>
-        <p>{{ post.text|linebreaksbr }}</p>
+    <div class="page-header">
+        <h1><a href="/">divi The Great Blog</a></h1> </div>
+<div class="content container">
+    <div class="row">	
+        <div class="col-md-9">
+            {% for post in posts %}
+                <div class="post">
+                    <div class="date">
+                        <p>published: {{ post.published_date }}</p>
+                    </div>
+                    <h1><a href="">{{ post.title }}</a></h1>
+                    <p>{{ post.text|linebreaksbr }}</p>
+                </div>
+            {% endfor %}
+        </div>
+		<div class="col-md-3">
+			<div class="logo">
+				<img src="http://it.wikifur.com/w/images/c/ca/Rafturtle.png" class="img-responsive" alt="leonardo" width="150"></img>
+			</div>
+			<div class="side-bar">
+				<h1>About</h1>
+				<p>I am Antonio, and this is my first Blog.</br>I'm 27 years old. I live in Italy with my wife and dog</p>
+			</div>
+			<div class="links">
+			<h1>Useful Links</h1>
+			<p><i class="fa fa-github-alt" aria-hidden="true"><a href="https://github.com/diviTheGreat">Github</a></i></p>
+			</div>
+		</div>
     </div>
-{% endfor %}
+</div>
 </body>
 
 </html>
