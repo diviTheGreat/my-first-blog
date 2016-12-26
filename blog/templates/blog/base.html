@@ -12,14 +12,32 @@
 
 
 <body>
-    <div class="page-header">
+<nav class="navbar navbar-default" style= "font-family:'Amatic SC', cursive; font-size:24px;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Glance at the newcomer</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Gallery</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+	    <ul class="nav navbar-nav navbar-right">
 		{% if user.is_authenticated %}
-			<a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
-			<a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-			<p class="top-menu">Hello {{ user.username }}<small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>		
+	  <li><a href="#">Hello {{ user.username }}</a></li>
+      <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-user"></span>Log out</a></li>
+	  <li><a href="{% url 'post_draft_list' %}"><span class="glyphicon glyphicon-edit"></span></a></li>
+	  <li><a href="{% url 'post_new' %}"><span class="glyphicon glyphicon-plus"></span></a></li>
 		{% else %}
-            <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
+	  <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-lock"></span>Login</a></li>
         {% endif %}
+	  
+    </ul>
+  </div>
+</nav>
+
+    <div class="page-header">
         <h1><a href="/">divi The Great Blog</a></h1> </div>
 <div class="content container">
     <div class="row">	
@@ -27,9 +45,9 @@
             {% block content %}
             {% endblock %}
         </div>
-		<div class="col-md-3">
+		<div class="col-md-3 blog-sidebar">
 			<div class="logo">
-				<img src="http://it.wikifur.com/w/images/c/ca/Rafturtle.png" class="img-responsive" alt="leonardo" width="150"></img>
+				<img src="http://it.wikifur.com/w/images/c/ca/Rafturtle.png" class="img-responsive" alt="leonardo" height="132" width="132"></img>
 			</div>
 			<div class="side-bar">
 				<h1>About</h1>
@@ -38,6 +56,7 @@
 			<div class="links">
 			<h1>Useful Links</h1>
 			<p id="github"><i class="fa fa-github-alt" aria-hidden="true"><a href="https://github.com/diviTheGreat">Github</a></i></p>
+			<p id="github"><i class="fa fa-linkedin-square" aria-hidden="true"><a href="https://www.linkedin.com/in/antonio-diversi-30130a9b?trk=hp-identity-photo">LinkedIn</a></i></p>
 			</div>
 		</div>
     </div>

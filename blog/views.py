@@ -85,3 +85,6 @@ def comment_remove(request, pk):
     post_pk = comment.post.pk
     comment.delete()
     return redirect('post_detail', pk=post_pk)
+	
+def contact(request):
+	return render(request, 'blog/basic.html', {'content':['if you would like to contact me, please email me','divi9012@outlook.com']})
