@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.utils import timezone
 from .models import Post, Comment
 from django.shortcuts import render, get_object_or_404
-from .forms import PostForm, CommentForm
+from .forms import PostForm, CommentForm, ContactForm
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 
@@ -87,4 +87,8 @@ def comment_remove(request, pk):
     return redirect('post_detail', pk=post_pk)
 	
 def contact(request):
-	return render(request, 'blog/basic.html', {'content':['if you would like to contact me, please email me','divi9012@outlook.com']})
+    form_class = ContactForm
+    
+    return render(request, 'blog/contact.html', {
+        'form': form_class,
+    })
