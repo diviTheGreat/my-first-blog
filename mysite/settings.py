@@ -27,6 +27,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USERS = 'divi901200'
+EMAIL_HOST_PASSWORD = 'assodipicche90'
+EMAIL_USE_TLS = True 
+EMAIL_PORT = 587
 
 # Application definition
 
